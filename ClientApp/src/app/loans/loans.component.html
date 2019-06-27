@@ -16,11 +16,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr id="loans-table" *ngFor="let loan of loans">
+      <tr id="loans-table" *ngFor="let loan of loans; let i=index">
         <td>{{loan.name}}</td>
         <td>{{loan.balance}}</td>
         <td>{{loan.term}}</td>
         <td>{{loan.rate}}</td>
+        <button *ngIf="deleteLoan" class="btn btn-danger delete-btn" (click)="deleteLoan(i)">Delete</button>
       </tr>
     </tbody>
   </table>

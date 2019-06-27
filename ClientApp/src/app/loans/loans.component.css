@@ -44,3 +44,9 @@
 .float-right {
   float: right;
 }
+
+.delete-btn {
+  margin-top: 6px;
+  float: right;
+  margin-left: -74px;
+}

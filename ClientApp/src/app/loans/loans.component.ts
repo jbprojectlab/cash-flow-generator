@@ -42,6 +42,10 @@ export class LoansComponent {
     this.cashFlowButtonDisplayed = true
   }
 
+  deleteLoan(i) {
+    this.loans.splice(i, 1)
+  }
+
   displayMonthlyCashFlows() {
     this.cashFlowsDisplayed = !this.cashFlowsDisplayed
   }
