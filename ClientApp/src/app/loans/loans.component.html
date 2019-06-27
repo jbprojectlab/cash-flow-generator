@@ -1,0 +1,20 @@
+﻿<div id="loans-header">
+  <h2>Loans</h2>
+  <div id="action-container">
+    <button *ngIf="!loanFormDisplayed" type="button" (click)="addNewLoan()" class="btn btn-primary">Add New Loan</button><br>
+    <button *ngIf="displayMonthlyCashFlows && cashFlowButtonDisplayed" (click)="displayMonthlyCashFlows()" class="btn btn-secondary">Show Monthly Cash Flows</button>
+  </div>
+</div>
+<form *ngIf="loanFormDisplayed" (ngSubmit)="submitLoanInfo()">
+  <div [formGroup]="loanForm" class="form-group">
+    <label for="name">Name</label>
+    <input formControlName="name" class="form-control">
+    <label for="balance">Balance</label>
+    <input formControlName="balance" class="form-control">
+    <label for="term">Term</label>
+    <input formControlName="term" class="form-control">
+    <label for="rate">Rate</label>
+    <input formControlName="rate" class="form-control">
+  </div>
+  <button>Submit Loan Info</button>
+</form>

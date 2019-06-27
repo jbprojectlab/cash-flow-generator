@@ -1,0 +1,19 @@
+﻿#loans-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+#loans-header h2 {
+  margin: 0;
+}
+
+#action-container {
+  width: 50%;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+#action-container button {
+   margin-left: 40px;
+}
