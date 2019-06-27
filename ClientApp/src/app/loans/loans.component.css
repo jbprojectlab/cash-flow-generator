@@ -15,9 +15,32 @@
 }
 
 #action-container button {
-   margin-left: 40px;
+  margin-left: 40px;
 }
 
 .top-margin {
-    margin-top: 20px;
+  margin-top: 20px;
+}
+
+#loans-table {
+  border-bottom: 1px solid lightgray;
+}
+
+#table-header-container th:nth-child(2) {
+  padding-right: 0;
+}
+
+#loan-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#loan-form input {
+  width: 22%;
+  pading-right: 3%;
+}
+
+.float-right {
+  float: right;
 }

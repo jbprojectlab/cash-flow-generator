@@ -5,31 +5,18 @@
     <button *ngIf="displayMonthlyCashFlows && cashFlowButtonDisplayed" (click)="displayMonthlyCashFlows()" class="btn btn-secondary">Show Monthly Cash Flows</button>
   </div>
 </div>
-<form *ngIf="loanFormDisplayed" (ngSubmit)="submitLoanInfo()">
-  <div [formGroup]="loanForm" class="form-group">
-    <label for="name">Name</label>
-    <input formControlName="name" class="form-control">
-    <label for="balance">Balance</label>
-    <input formControlName="balance" class="form-control">
-    <label for="term">Term</label>
-    <input formControlName="term" class="form-control">
-    <label for="rate">Rate</label>
-    <input formControlName="rate" class="form-control">
-  </div>
-  <button>Submit Loan Info</button>
-</form>
 <div>
   <table class="table top-margin">
     <thead>
-      <tr>
+      <tr id="table-header-container">
         <th>Name</th>
-        <th>Balance</th>
+        <th >Balance</th>
         <th>Term</th>
         <th>Rate</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let loan of loans">
+      <tr id="loans-table" *ngFor="let loan of loans">
         <td>{{loan.name}}</td>
         <td>{{loan.balance}}</td>
         <td>{{loan.term}}</td>
@@ -38,3 +25,12 @@
     </tbody>
   </table>
 </div>
+<form *ngIf="loanFormDisplayed" (ngSubmit)="submitLoanInfo()">
+  <div id="loan-form" [formGroup]="loanForm" class="form-group">
+    <input formControlName="name" class="form-control">
+    <input formControlName="balance" class="form-control">
+    <input formControlName="term" class="form-control">
+    <input formControlName="rate" class="form-control">
+  </div>
+  <button class="btn btn-primary float-right">Submit</button>
+</form>
