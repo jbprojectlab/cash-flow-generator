@@ -42,10 +42,6 @@ export class LoansComponent {
     this.cashFlowButtonDisplayed = true
   }
 
-  deleteRow(index: number) {
-    this.formArr.removeAt(index);
-  }
-
   displayMonthlyCashFlows() {
     this.cashFlowsDisplayed = !this.cashFlowsDisplayed
   }

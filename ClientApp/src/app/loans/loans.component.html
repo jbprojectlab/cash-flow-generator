@@ -18,3 +18,23 @@
   </div>
   <button>Submit Loan Info</button>
 </form>
+<div>
+  <table class="table top-margin">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Term</th>
+        <th>Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let loan of loans">
+        <td>{{loan.name}}</td>
+        <td>{{loan.balance}}</td>
+        <td>{{loan.term}}</td>
+        <td>{{loan.rate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
