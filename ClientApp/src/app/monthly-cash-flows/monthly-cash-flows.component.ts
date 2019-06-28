@@ -3,11 +3,12 @@
 @Component({
   selector: 'monthly-cash-flows',
   templateUrl: './monthly-cash-flows.component.html',
-  styleUrls: ['../app.component.css', './monthly-cash-flows.component.css']
+  styleUrls: ['../app.component.css']
 })
 
 export class MonthlyCashFlowsComponent {
   @Input() currentLoan: Loan;
+  @Input() pooledMonthlyCashFlows: Array<MonthlyCashFlow> = [];
   monthlyCashFlows: Array<MonthlyCashFlow> = [];
   monthlyCashFlowData: MonthlyCashFlow;
   totalMonthlyPayment: number;
@@ -17,8 +18,8 @@ export class MonthlyCashFlowsComponent {
   loanTerm: number;
 
   ngOnInit() {
-    this.calcCashFlow()
-    console.log(this.monthlyCashFlows)
+    this.calcCashFlow();
+    console.log(this.pooledMonthlyCashFlows)
   }
 
   calcCashFlow() {
@@ -35,9 +36,20 @@ export class MonthlyCashFlowsComponent {
           interest: this.interest,
           principal: this.principal,
           balance: this.remainingBalance
-      }
-      this.monthlyCashFlows.push(this.monthlyCashFlowData);
-      this.loanTerm -= 1
+      };
+        this.monthlyCashFlows.push(this.monthlyCashFlowData);
+        if (!this.pooledMonthlyCashFlows[currentMonth]) {
+            this.pooledMonthlyCashFlows[currentMonth] = this.monthlyCashFlowData;
+        } else {
+          let pooledMonth = this.pooledMonthlyCashFlows[currentMonth];
+          this.pooledMonthlyCashFlows[currentMonth] = {
+            month: pooledMonth.month + this.monthlyCashFlowData.month,
+            interest: pooledMonth.interest + this.monthlyCashFlowData.interest,
+            principal: pooledMonth.principal + this.monthlyCashFlowData.principal,
+            balance: pooledMonth.balance + this.monthlyCashFlowData.balance
+          }
+        }
+      this.loanTerm -= 1;
       currentMonth += 1;
     }    
   }
@@ -49,11 +61,3 @@ interface Loan {
   term: number,
   rate: number
 }
-
-interface MonthlyCashFlow {
-  month: number,
-  interest: number,
-  principal: number,
-  balance: number
-}
-

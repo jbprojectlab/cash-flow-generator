@@ -8,7 +8,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 
 export class LoansComponent {
-  public loans: Array<{name: string, balance: number, term: number, rate: number}> = []
+  public loans: Array<{ name: string, balance: number, term: number, rate: number }> = [];
+  public pooledMonthlyCashFlows: Array<MonthlyCashFlow> = [];
   public loanForm: FormGroup;
   public name: string;
   public loansTableDisplayed: boolean = true;
@@ -27,6 +28,7 @@ export class LoansComponent {
       term: new FormControl(),
       rate: new FormControl()
     })
+    console.log(this.pooledMonthlyCashFlows)
   }
 
   addNewLoan() {

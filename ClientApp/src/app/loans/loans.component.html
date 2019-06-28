@@ -57,7 +57,7 @@
         <h5>{{loan.rate}}</h5>
       </div>
     </div>
-    <monthly-cash-flows [currentLoan]="loan"></monthly-cash-flows>
+    <monthly-cash-flows [pooledMonthlyCashFlows]="pooledMonthlyCashFlows" [currentLoan]="loan"></monthly-cash-flows>
   </div>
 </div>
 <div *ngIf="!loans.length && !loanFormDisplayed" class="no-content-header left-padding">

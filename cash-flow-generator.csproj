@@ -24,6 +24,7 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <None Remove="ClientApp\src\app\loans\EmptyTSFile.ts" />
     <None Remove="ClientApp\src\app\cash-flow\cash-flow.component.ts" />
+    <None Remove="ClientApp\src\app\monthly-cash-flows\monthly-cash-flow.d.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\loans\loans.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\monthly-cash-flows\monthly-cash-flows.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\monthly-cash-flows\monthly-cash-flow.d.ts" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
