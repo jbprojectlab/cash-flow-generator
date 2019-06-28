@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoansComponent } from './loans/loans.component';
+import { MonthlyCashFlowsComponent } from './monthly-cash-flows/monthly-cash-flows.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoansComponent
+    LoansComponent,
+    MonthlyCashFlowsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
