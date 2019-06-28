@@ -4,6 +4,10 @@
   justify-content: space-between;
 }
 
+.border-bottom {
+  border-bottom: 1px solid lightgray;
+}
+
 #header h2 {
   margin: 0;
 }
@@ -18,14 +22,6 @@
   margin-left: 40px;
 }
 
-.top-margin {
-  margin-top: 20px;
-}
-
-#loans-table {
-  border-bottom: 1px solid lightgray;
-}
-
 #table-header-container th:nth-child(2) {
   padding-right: 0;
 }
@@ -38,15 +34,33 @@
 
 #loan-form input {
   width: 22%;
-  pading-right: 3%;
-}
-
-.float-right {
-  float: right;
+  padding-right: 3%;
 }
 
 .delete-btn {
   margin-top: 6px;
   float: right;
   margin-left: -74px;
+}
+
+.cash-flows-subheader {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  padding-top: 30px;
+}
+
+.cash-flows-subheader * {
+  display: flex;
+  font-size: 1em;
+  justify-content: flex-start;
+}
+
+.cash-flows-subheader h5:nth-child(odd) {
+  padding-right: 2em;
+  font-weight: 250;
+}
+
+.table {
+  margin-bottom: 0;
 }

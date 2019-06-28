@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 @Component({
   selector: 'loans',
   templateUrl: './loans.component.html',
-  styleUrls: ['./loans.component.css' ]
+  styleUrls: ['../app.component.css', './loans.component.css']
 })
 
 export class LoansComponent {

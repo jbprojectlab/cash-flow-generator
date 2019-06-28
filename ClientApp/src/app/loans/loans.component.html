@@ -1,4 +1,4 @@
-﻿<div id="header">
+﻿<div id="header" class="left-padding">
 <h2>{{!cashFlowsDisplayed ? 'Loans' : 'Monthly Cash Flows'}}</h2>
   <div id="action-container">
     <button *ngIf="!loanFormDisplayed && !cashFlowsDisplayed" type="button" (click)="addNewLoan()" class="btn btn-primary">Add New Loan</button><br>
@@ -9,7 +9,7 @@
 <div *ngIf="loansTableDisplayed" >
   <table class="table top-margin flex-wrap">
     <thead>
-      <tr id="table-header-container">
+      <tr id="table-header-container" class="table-header">
         <th>Name</th>
         <th>Balance</th>
         <th>Term</th>
@@ -36,8 +36,32 @@
   </div>
   <button class="btn btn-primary float-right">Submit</button>
 </form>
+<div *ngIf="cashFlowsDisplayed" class="border-bottom top-margin"></div>
 <div *ngFor="let loan of loans; let i=index">
-  <div class="cash-flows-container" *ngIf="cashFlowsDisplayed && loans">
+  <div *ngIf="cashFlowsDisplayed && loans">
+    <div class="cash-flows-subheader left-padding">
+      <div>
+        <h5>Loan:</h5>
+        <h5>{{loan.name}}</h5>
+      </div>
+      <div>
+        <h5>Balance:</h5>
+        <h5>{{loan.balance}}</h5>
+      </div>
+      <div>
+        <h5>Term:</h5>
+        <h5>{{loan.term}}</h5>
+      </div>
+      <div>
+        <h5>Rate:</h5>
+        <h5>{{loan.rate}}</h5>
+      </div>
+    </div>
     <monthly-cash-flows [currentLoan]="loan"></monthly-cash-flows>
   </div>
+</div>
+<div *ngIf="!loans.length && !loanFormDisplayed" class="no-content-header left-padding">
+  <h4>
+    Please add a loan for calculation
+  </h4>
 </div>

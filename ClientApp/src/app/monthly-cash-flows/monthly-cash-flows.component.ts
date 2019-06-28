@@ -3,7 +3,7 @@
 @Component({
   selector: 'monthly-cash-flows',
   templateUrl: './monthly-cash-flows.component.html',
-  styleUrls: ['./monthly-cash-flows.component.css']
+  styleUrls: ['../app.component.css', './monthly-cash-flows.component.css']
 })
 
 export class MonthlyCashFlowsComponent {

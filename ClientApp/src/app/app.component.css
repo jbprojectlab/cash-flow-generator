@@ -3,3 +3,32 @@
   width: 100%;
   padding: 20px 5% 20px 5%;
 }
+
+.top-margin {
+  margin-top: 20px;
+}
+
+.left-padding {
+  padding-left: 12px;
+}
+
+th {
+  background: rgba(218, 234, 247, 0.15);
+}
+
+tr {
+  border-bottom: 1px solid lightgray;
+}
+
+.float-right {
+  float: right;
+}
+
+.no-content-header {
+  position: absolute;
+  top: 160px;
+}
+
+.no-content-header h4 {
+  font-weight: 350;
+}
