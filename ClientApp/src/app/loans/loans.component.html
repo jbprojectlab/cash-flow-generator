@@ -5,12 +5,12 @@
     <button *ngIf="displayMonthlyCashFlows && cashFlowButtonDisplayed" (click)="displayMonthlyCashFlows()" class="btn btn-secondary">Show Monthly Cash Flows</button>
   </div>
 </div>
-<div>
+<div *ngIf="loansTableDisplayed" >
   <table class="table top-margin flex-wrap">
     <thead>
       <tr id="table-header-container">
         <th>Name</th>
-        <th >Balance</th>
+        <th>Balance</th>
         <th>Term</th>
         <th>Rate</th>
       </tr>
@@ -22,9 +22,6 @@
         <td>{{loan.term}}</td>
         <td>{{loan.rate}}</td>
         <button *ngIf="deleteLoan" class="btn btn-danger delete-btn" (click)="deleteLoan(i)">Delete</button>
-        <div class="cash-flows-container" *ngIf="cashFlowsDisplayed && loans">
-          <monthly-cash-flows [currentLoan]="loan"></monthly-cash-flows>
-        </div>
       </tr>
     </tbody>
   </table>
@@ -38,3 +35,8 @@
   </div>
   <button class="btn btn-primary float-right">Submit</button>
 </form>
+<div *ngFor="let loan of loans; let i=index">
+  <div class="cash-flows-container" *ngIf="cashFlowsDisplayed && loans">
+    <monthly-cash-flows [currentLoan]="loan"></monthly-cash-flows>
+  </div>
+</div>

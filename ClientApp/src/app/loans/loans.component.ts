@@ -11,6 +11,7 @@ export class LoansComponent {
   public loans: Array<{name: string, balance: number, term: number, rate: number}> = []
   public loanForm: FormGroup;
   public name: string;
+  public loansTableDisplayed: boolean = true;
   public loanFormDisplayed: boolean = false
   public loanInfoDisplayed: boolean = true;
   public cashFlowsDisplayed: boolean = false;
@@ -48,6 +49,7 @@ export class LoansComponent {
   }
 
   displayMonthlyCashFlows() {
+    this.loansTableDisplayed = !this.loansTableDisplayed
     this.cashFlowsDisplayed = !this.cashFlowsDisplayed
   }
 }
