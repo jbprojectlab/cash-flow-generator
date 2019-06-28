@@ -1,5 +1,4 @@
 ﻿<div class="cash-flows-container">
-  <h2>Monthly Cash Flows</h2>
   <div *ngIf="monthlyCashFlows" class="table">
     <table class="table top-margin">
       <thead>
@@ -19,5 +18,8 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf="!monthlyCashFlows" >
+    <h2>Please add a loan for calculation</h2>
   </div>
 </div>

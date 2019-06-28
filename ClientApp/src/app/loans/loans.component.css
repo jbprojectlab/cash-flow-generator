@@ -1,10 +1,10 @@
-﻿#loans-header {
+﻿#header {
   display: flex;
   align-content: center;
   justify-content: space-between;
 }
 
-#loans-header h2 {
+#header h2 {
   margin: 0;
 }
 

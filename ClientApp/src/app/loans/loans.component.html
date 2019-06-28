@@ -1,8 +1,9 @@
-﻿<div id="loans-header">
-  <h2>Loans</h2>
+﻿<div id="header">
+<h2>{{!cashFlowsDisplayed ? 'Loans' : 'Monthly Cash Flows'}}</h2>
   <div id="action-container">
-    <button *ngIf="!loanFormDisplayed" type="button" (click)="addNewLoan()" class="btn btn-primary">Add New Loan</button><br>
-    <button *ngIf="displayMonthlyCashFlows && cashFlowButtonDisplayed" (click)="displayMonthlyCashFlows()" class="btn btn-secondary">Show Monthly Cash Flows</button>
+    <button *ngIf="!loanFormDisplayed && !cashFlowsDisplayed" type="button" (click)="addNewLoan()" class="btn btn-primary">Add New Loan</button><br>
+    <button *ngIf="cashFlowButtonDisplayed && !cashFlowsDisplayed" (click)="displayMonthlyCashFlows()" class="btn btn-secondary">Monthly Cash Flows</button>
+    <button *ngIf="cashFlowsDisplayed" (click)="displayMonthlyCashFlows()" class="btn btn-secondary">Back To Loans</button>
   </div>
 </div>
 <div *ngIf="loansTableDisplayed" >
