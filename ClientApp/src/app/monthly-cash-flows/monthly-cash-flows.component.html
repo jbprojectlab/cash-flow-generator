@@ -1,20 +1,23 @@
-﻿<div *ngIf="monthlyCashFlows" class="table">
-  <table class="table top-margin">
-    <thead>
-      <tr>
-        <th>Month</th>
-        <th>Interest</th>
-        <th>Principal</th>
-        <th>Balance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr id="cash-flows-row" *ngFor="let monthlyCashFlow of monthlyCashFlows; let i=index">
-        <td>{{monthlyCashFlow.month}}</td>
-        <td>{{monthlyCashFlow.interest}}</td>
-        <td>{{monthlyCashFlow.principal}}</td>
-        <td>{{monthlyCashFlow.balance}}</td>
-      </tr>
-    </tbody>
-  </table>
+﻿<div class="cash-flows-container">
+  <h2>Monthly Cash Flows</h2>
+  <div *ngIf="monthlyCashFlows" class="table">
+    <table class="table top-margin">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Interest</th>
+          <th>Principal</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="cash-flows-row" *ngFor="let monthlyCashFlow of monthlyCashFlows; let i=index">
+          <td>{{monthlyCashFlow.month}}</td>
+          <td>{{monthlyCashFlow.interest}}</td>
+          <td>{{monthlyCashFlow.principal}}</td>
+          <td>{{monthlyCashFlow.balance}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -29,7 +29,8 @@ export class LoansComponent {
   }
 
   addNewLoan() {
-    this.loanFormDisplayed = true    
+    this.loanFormDisplayed = true
+    this.cashFlowsDisplayed = false
     this.cashFlowButtonDisplayed = false
     this.addNewLoanButtonDisplayed = false
   }
