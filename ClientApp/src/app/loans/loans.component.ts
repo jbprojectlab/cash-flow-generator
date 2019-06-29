@@ -20,7 +20,7 @@ export class LoansComponent {
   public cashFlowButtonDisplayed: boolean = true;
   public addNewLoanButtonDisplayed: boolean = true;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder) { };
 
   ngOnInit() {
     this.loanForm = this._fb.group({
@@ -28,20 +28,20 @@ export class LoansComponent {
       balance: new FormControl(),
       term: new FormControl(),
       rate: new FormControl()
-    })
-  }
+    });
+  };
 
   addNewLoan() {
     this.submitted = false;
-    this.loanFormDisplayed = true
-    this.cashFlowsDisplayed = false
-    this.cashFlowButtonDisplayed = false
-    this.addNewLoanButtonDisplayed = false
-  }
+    this.loanFormDisplayed = true;
+    this.cashFlowsDisplayed = false;
+    this.cashFlowButtonDisplayed = false;
+    this.addNewLoanButtonDisplayed = false;
+  };
 
   closeLoanForm() {
-    this.loanFormDisplayed = false
-  }
+    this.loanFormDisplayed = false;
+  };
   
   submitLoanInfo() {
     if(this.loanForm.valid) {
@@ -53,15 +53,15 @@ export class LoansComponent {
     };
 
     this.submitted = true;
-  }
+  };
 
   deleteLoan(i) {
-    this.loans.splice(i, 1)
-  }
+    this.loans.splice(i, 1);
+  };
 
   displayMonthlyCashFlows() {
-    this.loansTableDisplayed = !this.loansTableDisplayed
-    this.cashFlowsDisplayed = !this.cashFlowsDisplayed
-    console.log(this.pooledMonthlyCashFlows)
-  }
-}
+    this.loansTableDisplayed = !this.loansTableDisplayed;
+    this.cashFlowsDisplayed = !this.cashFlowsDisplayed;
+    console.log(this.pooledMonthlyCashFlows);
+  };
+};
