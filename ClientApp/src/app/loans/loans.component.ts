@@ -12,6 +12,7 @@ export class LoansComponent {
   public pooledMonthlyCashFlows: Array<MonthlyCashFlow> = [];
   public loanForm: FormGroup;
   public name: string;
+  public submitted: boolean = false;
   public loansTableDisplayed: boolean = true;
   public loanFormDisplayed: boolean = false
   public loanInfoDisplayed: boolean = true;
@@ -31,6 +32,7 @@ export class LoansComponent {
   }
 
   addNewLoan() {
+    this.submitted = false;
     this.loanFormDisplayed = true
     this.cashFlowsDisplayed = false
     this.cashFlowButtonDisplayed = false
@@ -42,11 +44,15 @@ export class LoansComponent {
   }
   
   submitLoanInfo() {
-    this.loans.push(this.loanForm.value)
-    this.loanForm.reset()
-    this.loanFormDisplayed = false
-    this.loanInfoDisplayed = true
-    this.cashFlowButtonDisplayed = true
+    if(this.loanForm.valid) {
+      this.loans.push(this.loanForm.value);
+      this.loanForm.reset();
+      this.loanFormDisplayed = false;
+      this.loanInfoDisplayed = true;
+      this.cashFlowButtonDisplayed = true;
+    };
+
+    this.submitted = true;
   }
 
   deleteLoan(i) {

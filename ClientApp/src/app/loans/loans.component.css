@@ -32,6 +32,10 @@
   justify-content: space-between;
 }
 
+#loan-form:last-child {
+  margin-left: 1em;
+}
+
 #loan-form input {
   width: 22%;
   padding-right: 3%;
@@ -58,9 +62,17 @@
 
 .cash-flows-subheader h5:nth-child(odd) {
   padding-right: 2em;
-  font-weight: 250;
+  font-weight: 300;
 }
 
 .table {
   margin-bottom: 0;
+}
+
+.loan-form-cancel-btn {
+  margin-left: 1.5em;
+}
+
+.req-fields {
+  margin-top: 4em;
 }
