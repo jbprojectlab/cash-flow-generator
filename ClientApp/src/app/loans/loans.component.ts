@@ -62,6 +62,5 @@ export class LoansComponent {
   displayMonthlyCashFlows() {
     this.loansTableDisplayed = !this.loansTableDisplayed;
     this.cashFlowsDisplayed = !this.cashFlowsDisplayed;
-    console.log(this.pooledMonthlyCashFlows);
   };
 };

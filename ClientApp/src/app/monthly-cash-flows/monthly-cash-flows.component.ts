@@ -38,7 +38,6 @@ export class MonthlyCashFlowsComponent {
         principal: this.principal.toFixed(2),
         balance: this.remainingBalance.toFixed(2)
       };
-        console.log(this.monthlyCashFlowData)
       this.monthlyCashFlows.push(this.monthlyCashFlowData);
       if(!this.pooledMonthlyCashFlows[currentMonth - 1]) {
           this.pooledMonthlyCashFlows[currentMonth - 1] = this.monthlyCashFlowData;
@@ -46,9 +45,9 @@ export class MonthlyCashFlowsComponent {
         let pooledMonth = this.pooledMonthlyCashFlows[currentMonth - 1];
         this.pooledMonthlyCashFlows[currentMonth - 1] = {
           month: this.monthlyCashFlowData.month,
-          interest: pooledMonth.interest + this.monthlyCashFlowData.interest,
-          principal: pooledMonth.principal + this.monthlyCashFlowData.principal,
-          balance: pooledMonth.balance + this.monthlyCashFlowData.balance
+          interest: (Number(pooledMonth.interest) + Number(this.monthlyCashFlowData.interest)).toFixed(2),
+          principal: (Number(pooledMonth.principal) + Number(this.monthlyCashFlowData.principal)).toFixed(2),
+          balance: (Number(pooledMonth.balance) + Number(this.monthlyCashFlowData.balance)).toFixed(2)
         };
       };
       this.loanTerm -= 1;

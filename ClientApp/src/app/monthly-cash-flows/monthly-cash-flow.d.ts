@@ -3,4 +3,4 @@
   interest: string,
   principal: string,
   balance: string
-};
+}
