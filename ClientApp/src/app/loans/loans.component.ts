@@ -28,7 +28,6 @@ export class LoansComponent {
       term: new FormControl(),
       rate: new FormControl()
     })
-    console.log(this.pooledMonthlyCashFlows)
   }
 
   addNewLoan() {
@@ -53,5 +52,6 @@ export class LoansComponent {
   displayMonthlyCashFlows() {
     this.loansTableDisplayed = !this.loansTableDisplayed
     this.cashFlowsDisplayed = !this.cashFlowsDisplayed
+    console.log(this.pooledMonthlyCashFlows)
   }
 }

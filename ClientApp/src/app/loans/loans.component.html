@@ -6,6 +6,9 @@
     <button *ngIf="cashFlowsDisplayed" (click)="displayMonthlyCashFlows()" class="btn btn-secondary">Back To Loans</button>
   </div>
 </div>
+<div *ngIf="!loans.length && !loanFormDisplayed" class="no-content-header left-padding">
+  <h4>Please add a loan for calculation</h4>
+</div>
 <div *ngIf="loansTableDisplayed" >
   <table class="table top-margin flex-wrap">
     <thead>
@@ -57,11 +60,6 @@
         <h5>{{loan.rate}}</h5>
       </div>
     </div>
-    <monthly-cash-flows [pooledMonthlyCashFlows]="pooledMonthlyCashFlows" [currentLoan]="loan"></monthly-cash-flows>
+    <monthly-cash-flows [endOfLoans]="i === loans.length - 1" [pooledMonthlyCashFlows]="pooledMonthlyCashFlows" [currentLoan]="loan"></monthly-cash-flows>
   </div>
-</div>
-<div *ngIf="!loans.length && !loanFormDisplayed" class="no-content-header left-padding">
-  <h4>
-    Please add a loan for calculation
-  </h4>
 </div>

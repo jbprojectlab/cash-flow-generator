@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'monthly-cash-flows',
@@ -8,7 +8,9 @@
 
 export class MonthlyCashFlowsComponent {
   @Input() currentLoan: Loan;
+  @Input() public endOfLoans: boolean;
   @Input() pooledMonthlyCashFlows: Array<MonthlyCashFlow> = [];
+  @Output() pooledMonths: Array<MonthlyCashFlow> = [];
   monthlyCashFlows: Array<MonthlyCashFlow> = [];
   monthlyCashFlowData: MonthlyCashFlow;
   totalMonthlyPayment: number;
@@ -18,8 +20,8 @@ export class MonthlyCashFlowsComponent {
   loanTerm: number;
 
   ngOnInit() {
-    this.calcCashFlow();
-    console.log(this.pooledMonthlyCashFlows)
+      this.calcCashFlow();
+      console.log(this.endOfLoans)
   }
 
   calcCashFlow() {
@@ -38,12 +40,12 @@ export class MonthlyCashFlowsComponent {
           balance: this.remainingBalance
       };
         this.monthlyCashFlows.push(this.monthlyCashFlowData);
-        if (!this.pooledMonthlyCashFlows[currentMonth]) {
-            this.pooledMonthlyCashFlows[currentMonth] = this.monthlyCashFlowData;
+        if (!this.pooledMonthlyCashFlows[currentMonth - 1]) {
+            this.pooledMonthlyCashFlows[currentMonth - 1] = this.monthlyCashFlowData;
         } else {
           let pooledMonth = this.pooledMonthlyCashFlows[currentMonth];
-          this.pooledMonthlyCashFlows[currentMonth] = {
-            month: pooledMonth.month + this.monthlyCashFlowData.month,
+          this.pooledMonthlyCashFlows[currentMonth - 1] = {
+            month: this.monthlyCashFlowData.month,
             interest: pooledMonth.interest + this.monthlyCashFlowData.interest,
             principal: pooledMonth.principal + this.monthlyCashFlowData.principal,
             balance: pooledMonth.balance + this.monthlyCashFlowData.balance
