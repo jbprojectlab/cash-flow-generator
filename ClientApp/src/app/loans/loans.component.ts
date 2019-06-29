@@ -36,6 +36,10 @@ export class LoansComponent {
     this.cashFlowButtonDisplayed = false
     this.addNewLoanButtonDisplayed = false
   }
+
+  closeLoanForm() {
+    this.loanFormDisplayed = false
+  }
   
   submitLoanInfo() {
     this.loans.push(this.loanForm.value)

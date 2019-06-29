@@ -7,8 +7,8 @@
 })
 
 export class MonthlyCashFlowsComponent {
-  @Input() currentLoan: Loan;
   @Input() public endOfLoans: boolean;
+  @Input() currentLoan: Loan;
   @Input() pooledMonthlyCashFlows: Array<MonthlyCashFlow> = [];
   @Output() pooledMonths: Array<MonthlyCashFlow> = [];
   monthlyCashFlows: Array<MonthlyCashFlow> = [];
@@ -20,12 +20,11 @@ export class MonthlyCashFlowsComponent {
   loanTerm: number;
 
   ngOnInit() {
-      this.calcCashFlow();
-      console.log(this.endOfLoans)
-  }
+    this.calcCashFlow();
+  };
 
   calcCashFlow() {
-    let currentMonth = 1
+    let currentMonth = 1;
     this.remainingBalance = this.currentLoan.balance;
     this.loanTerm = this.currentLoan.term;
     while (this.loanTerm > 0 || this.remainingBalance) {
@@ -34,13 +33,13 @@ export class MonthlyCashFlowsComponent {
       this.principal = +(this.totalMonthlyPayment - this.interest).toFixed(2);
       this.remainingBalance = +(this.remainingBalance - this.principal).toFixed(2);
       this.monthlyCashFlowData = {
-          month: currentMonth,
-          interest: this.interest,
-          principal: this.principal,
-          balance: this.remainingBalance
+        month: currentMonth,
+        interest: this.interest,
+        principal: this.principal,
+        balance: this.remainingBalance
       };
       this.monthlyCashFlows.push(this.monthlyCashFlowData);
-      if (!this.pooledMonthlyCashFlows[currentMonth - 1]) {
+      if(!this.pooledMonthlyCashFlows[currentMonth - 1]) {
           this.pooledMonthlyCashFlows[currentMonth - 1] = this.monthlyCashFlowData;
       } else {
         let pooledMonth = this.pooledMonthlyCashFlows[currentMonth - 1];
@@ -49,17 +48,17 @@ export class MonthlyCashFlowsComponent {
           interest: pooledMonth.interest + this.monthlyCashFlowData.interest,
           principal: pooledMonth.principal + this.monthlyCashFlowData.principal,
           balance: pooledMonth.balance + this.monthlyCashFlowData.balance
-        }
-      }
+        };
+      };
       this.loanTerm -= 1;
       currentMonth += 1;
-    }    
-  }
-}
+    };    
+  };
+};
 
 interface Loan {
   name: string,
   balance: number,
   term: number,
   rate: number
-}
+};
