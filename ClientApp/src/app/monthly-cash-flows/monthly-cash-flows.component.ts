@@ -39,18 +39,18 @@ export class MonthlyCashFlowsComponent {
           principal: this.principal,
           balance: this.remainingBalance
       };
-        this.monthlyCashFlows.push(this.monthlyCashFlowData);
-        if (!this.pooledMonthlyCashFlows[currentMonth - 1]) {
-            this.pooledMonthlyCashFlows[currentMonth - 1] = this.monthlyCashFlowData;
-        } else {
-          let pooledMonth = this.pooledMonthlyCashFlows[currentMonth];
-          this.pooledMonthlyCashFlows[currentMonth - 1] = {
-            month: this.monthlyCashFlowData.month,
-            interest: pooledMonth.interest + this.monthlyCashFlowData.interest,
-            principal: pooledMonth.principal + this.monthlyCashFlowData.principal,
-            balance: pooledMonth.balance + this.monthlyCashFlowData.balance
-          }
+      this.monthlyCashFlows.push(this.monthlyCashFlowData);
+      if (!this.pooledMonthlyCashFlows[currentMonth - 1]) {
+          this.pooledMonthlyCashFlows[currentMonth - 1] = this.monthlyCashFlowData;
+      } else {
+        let pooledMonth = this.pooledMonthlyCashFlows[currentMonth - 1];
+        this.pooledMonthlyCashFlows[currentMonth - 1] = {
+          month: this.monthlyCashFlowData.month,
+          interest: pooledMonth.interest + this.monthlyCashFlowData.interest,
+          principal: pooledMonth.principal + this.monthlyCashFlowData.principal,
+          balance: pooledMonth.balance + this.monthlyCashFlowData.balance
         }
+      }
       this.loanTerm -= 1;
       currentMonth += 1;
     }    
