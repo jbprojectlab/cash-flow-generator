@@ -23,7 +23,7 @@ export class MonthlyCashFlowsComponent {
     this.calcCashFlow();
   };
 
-  calcCashFlow() {
+    calcCashFlow() {    
     let currentMonth = 1;
     this.remainingBalance = this.currentLoan.balance;
     this.loanTerm = this.currentLoan.term;
@@ -34,10 +34,11 @@ export class MonthlyCashFlowsComponent {
       this.remainingBalance = +(this.remainingBalance - this.principal).toFixed(2);
       this.monthlyCashFlowData = {
         month: currentMonth,
-        interest: this.interest,
-        principal: this.principal,
-        balance: this.remainingBalance
+        interest: this.interest.toFixed(2),
+        principal: this.principal.toFixed(2),
+        balance: this.remainingBalance.toFixed(2)
       };
+        console.log(this.monthlyCashFlowData)
       this.monthlyCashFlows.push(this.monthlyCashFlowData);
       if(!this.pooledMonthlyCashFlows[currentMonth - 1]) {
           this.pooledMonthlyCashFlows[currentMonth - 1] = this.monthlyCashFlowData;

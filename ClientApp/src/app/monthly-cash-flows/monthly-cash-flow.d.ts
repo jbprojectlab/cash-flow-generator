@@ -1,6 +1,6 @@
 ﻿declare interface MonthlyCashFlow {
   month: number,
-  interest: number,
-  principal: number,
-  balance: number
+  interest: string,
+  principal: string,
+  balance: string
 };

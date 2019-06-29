@@ -15,8 +15,8 @@
       <tr id="table-header-container" class="table-header">
         <th>Name</th>
         <th>Balance</th>
-        <th>Term</th>
-        <th>Rate %</th>
+        <th>Term (Months)</th>
+        <th>Rate (%)</th>
       </tr>
     </thead>
     <tbody>
@@ -33,9 +33,9 @@
 <form *ngIf="loanFormDisplayed" name="loanForm" novalidate (ngSubmit)="submitLoanInfo()">
   <div id="loan-form" [formGroup]="loanForm" class="form-group">
     <input formControlName="name" required minLength="1" maxLength="20" class="form-control">
-    <input formControlName="balance" required minLength="1" maxLength="16" pattern="^[0-9]*$" class="form-control">
-    <input formControlName="term" required minLength="1" maxLength="8" pattern="^[0-9]*$" class="form-control">
-    <input formControlName="rate" required minLength="1" maxLength="6" pattern="^[0-9]*$" class="form-control">
+    <input formControlName="balance" required minLength="1" maxLength="13" pattern="^[0-9]*$" class="form-control">
+    <input formControlName="term" required minLength="1" maxLength="3" pattern="^.[0-9]*$" class="form-control">
+    <input formControlName="rate" required minLength="1" maxLength="4" pattern="^.[0-9]*$" class="form-control">
   </div>
   <div class="float-right">
     <button class="btn btn-primary" type="submit">Submit</button>
@@ -43,9 +43,9 @@
   </div>
   <div *ngIf="submitted && loanForm.invalid" class="alert alert-danger req-fields">
     <div>Name must be 1-20 characters</div>
-    <div>Balance must be 1-20 digits</div>
+    <div>Balance must be 1-13 digits</div>
     <div>Term must be 1-3 digits</div>
-    <div>Rate must be 1-3 digits (max: 100%)</div>
+    <div>Rate must be 1-4 digits (max: 100%)</div>
   </div>
 </form>
 <div *ngIf="cashFlowsDisplayed" class="border-bottom top-margin"></div>

@@ -22,8 +22,16 @@
   margin-left: 40px;
 }
 
+#table-header-container th:nth-child(1) {
+  padding-right: 65px;
+}
+
 #table-header-container th:nth-child(2) {
-  padding-right: 0;
+  padding-right: 40px;
+}
+
+#table-header-container th:nth-child(3) {
+  padding-right: 0px;
 }
 
 #loan-form {
@@ -39,6 +47,18 @@
 #loan-form input {
   width: 22%;
   padding-right: 3%;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.loan-form-cancel-btn {
+  margin-left: 1.5em;
+}
+
+.req-fields {
+  margin-top: 4em;
 }
 
 .delete-btn {
@@ -63,16 +83,4 @@
 .cash-flows-subheader h5:nth-child(odd) {
   padding-right: 2em;
   font-weight: 300;
-}
-
-.table {
-  margin-bottom: 0;
-}
-
-.loan-form-cancel-btn {
-  margin-left: 1.5em;
-}
-
-.req-fields {
-  margin-top: 4em;
 }
